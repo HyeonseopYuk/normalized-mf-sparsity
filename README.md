@@ -1,4 +1,4 @@
-# Latent-Factor Normalization under Controlled Rating Sparsity
+## Latent-Factor Normalization under Controlled Rating Sparsity
 
 Reproducibility repository for the manuscript on Global versus Dimension-Specific Scaling in Normalized Matrix Factorization under Rating Sparsity.
 
