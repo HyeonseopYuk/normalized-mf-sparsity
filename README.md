@@ -1,6 +1,6 @@
 # Latent-Factor Normalization under Controlled Rating Sparsity
 
-Reproducibility repository for the manuscript on latent-factor normalization in explicit-rating matrix-factorization recommenders under controlled sparsity.
+Reproducibility repository for the manuscript on Global versus Dimension-Specific Scaling in Normalized Matrix Factorization under Rating Sparsity.
 
 ## What is reproduced
 
