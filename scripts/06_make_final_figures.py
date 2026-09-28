@@ -99,13 +99,13 @@ def main():
     ax.tick_params(length=0)
     sm=plt.cm.ScalarMappable(norm=norm,cmap=pos_cmap); sm.set_array([])
     cbar=fig.colorbar(sm,ax=ax,fraction=0.035,pad=0.025)
-    cbar.set_label('Relative RMSE gain (%)',fontsize=10.5,labelpad=8)
+    cbar.set_label('Relative RMSE reduction (%)',fontsize=10.5,labelpad=8)
     cbar.set_ticks([0,.1,.25,.5,1.0,1.5,1.8])
     cbar.ax.tick_params(labelsize=9); cbar.outline.set_linewidth(.6)
     fig.subplots_adjust(left=.19,right=.91,bottom=.18,top=.96)
     save_all(fig, args.figures_dir / 'Figure2_direct_ablation_heatmap')
 
-    # Figure 3: deviation between realized and nominal retention
+    # Supplementary Figure S1: deviation between realized and nominal retention
     fig, ax = plt.subplots(figsize=(9.1,4.7))
     styles = {
         'MovieLens 100K':dict(marker='o',linestyle='-'),
@@ -131,9 +131,9 @@ def main():
     ax.grid(axis='y',alpha=0.22)
     ax.spines['top'].set_visible(False); ax.spines['right'].set_visible(False)
     fig.subplots_adjust(left=0.13,right=0.98,bottom=0.16,top=0.95)
-    save_all(fig,args.figures_dir/'Figure3_realized_retention_deviation')
+    save_all(fig,args.figures_dir/'Supplementary_Figure_S1_realized_retention_deviation')
 
-    # Figure 4: MovieLens 100K sensitivity heatmap (single 3 x 9 matrix)
+    # Figure 3: MovieLens 100K sensitivity heatmap (single 3 x 9 matrix)
     wds=[1e-5,1e-4,1e-3]; ks=[16,32,64]; retentions=[1.0,0.5,0.1]
     arr=[]
     for r in retentions:
@@ -174,7 +174,7 @@ def main():
     cbar.set_label('RMSE gain\n(CosineMF - NormalizedMF)',fontsize=10,labelpad=8)
     cbar.ax.tick_params(labelsize=9); cbar.outline.set_linewidth(.6)
     fig.subplots_adjust(left=.12,right=.89,bottom=.22,top=.78)
-    save_all(fig,args.figures_dir/'Figure4_sensitivity_heatmaps')
+    save_all(fig,args.figures_dir/'Figure3_sensitivity_heatmaps')
 
 
 if __name__=='__main__':

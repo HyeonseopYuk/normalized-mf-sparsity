@@ -1,48 +1,27 @@
-# Dataset Setup
+# Data files
 
-Raw datasets are not redistributed in this repository. Please download them from their original sources and place them in the paths below.
+Raw third-party datasets are not redistributed in this repository.
 
-## MovieLens 100K
-Source: GroupLens Research
-
-```text
-data/ml-100k/u.data
-```
-
-## MovieLens 1M
-Source: GroupLens Research
+Place the following files in this directory before running the corresponding analyses:
 
 ```text
-data/ml-1m/ratings.dat
+data/
+├── ml-100k.zip
+├── ratings.dat                         # MovieLens 1M ratings file
+│   # alternatively: ml-1m.zip
+├── BX-Book-Explicit-5Rate-Map.csv      # Book-Crossing explicit-rating file used in this study
+├── ratings.txt                         # FilmTrust ratings
+└── jester-data-1.csv                   # Jester Dataset 1 wide matrix
 ```
 
-## Book-Crossing
-Source: Book-Crossing public dataset
+## Preprocessing used in the manuscript
 
-Use the explicit-rating data required by the preprocessing script. Ratings of 0 are excluded.
+- **MovieLens 100K / 1M**: user-stratified approximately 80/10/10 train/validation/test split.
+- **Book-Crossing**: retain users with at least 7 observed ratings, then linearly map ratings from 1-10 to 1-5.
+- **FilmTrust**: retain users with at least 7 observed ratings, then linearly map ratings from 0.5-4 to 1-5.
+- **Jester**: treat 99 as missing; for the harmonized analysis, map -10..10 to 1..5 using `r_scaled = 3 + 0.2*r`.
+- **Jester native-scale sensitivity**: run with `--jester-native-scale` to retain the original -10..10 scale.
 
-## FilmTrust
-Source: FilmTrust public dataset
+Only the training split is sparsified. Validation and test data remain fixed. At least five training observations per user are retained, so nominal and realized retention can differ, particularly for Book-Crossing and FilmTrust.
 
-```text
-data/filmtrust/ratings.txt
-```
-
-## Jester
-Source: Jester Joke Recommender System
-
-```text
-data/jester/jester-data-1.csv
-```
-
-The value `99` is treated as missing.
-
-## Notes
-
-The repository code performs all preprocessing, including:
-- user-stratified train/validation/test splitting;
-- nested retention at 100%, 75%, 50%, 25%, and 10%;
-- the minimum-five-training-rating rule;
-- rating-scale harmonization for Book-Crossing, FilmTrust, and Jester.
-
-See the main `README.md` for the execution order and software requirements.
+Please obtain each dataset from its original public research release and comply with its license or terms of use.

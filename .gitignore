@@ -1,0 +1,29 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.DS_Store
+.idea/
+.vscode/
+
+# Raw datasets are not redistributed
+data/ml-100k.zip
+data/ml-1m.zip
+data/ml-100k/
+data/ml-1m/
+data/ratings.dat
+data/BX-Book-Explicit-5Rate-Map.csv
+data/ratings.txt
+data/jester-data-1.csv
+
+# Regenerable long-form/intermediate outputs
+results/*_long.csv
+results/direct_ablation_cosine_vs_normalized.csv
+results/warm_item_10pct_robustness.csv
+results/external_validation/*_long.csv
+results/external_validation/*_meta.csv
+
+# Large raster exports are regenerable; compact PNG/PDF publication figures are versioned.
+figures/*.tiff
+figures/*.tif
