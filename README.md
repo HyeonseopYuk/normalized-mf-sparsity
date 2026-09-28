@@ -4,10 +4,6 @@ Reproducibility repository for the manuscript **"Global versus Dimension-Specifi
 
 This repository contains the analysis code and manuscript-level processed outputs for the controlled comparison between a single global cosine scale (CosineMF) and positive dimension-specific scaling after L2 normalization (NormalizedMF).
 
-## Repository version
-
-**v1.4.0 — submission release**
-
 ## Study design reproduced here
 
 - Primary controlled benchmarks: MovieLens 100K and MovieLens 1M
